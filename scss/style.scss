@@ -1,0 +1,188 @@
+// my-theme
+$sombra: rgba(0, 0, 0, 0.2);
+$accent-color:#3E78B2;
+$text-color:#D8DBE2;
+$primary-color:#626C66;
+$secundary-color: #246A73;
+$backgroud-color:#02182B;
+$theme-colors:( 'accent-color' : $accent-color, 'text-color' : $text-color, 'primary-color' : $primary-color, 'secundary-color' : $secundary-color, 'backgroud-color' : $backgroud-color);
+$link-color : $text-color;
+$link-hover-color : $accent-color;
+h1 h2 h3 {
+    font-family: 'Rubik', sans-serif;
+}
+
+p {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+//Bootstrap import
+@import 'node_modules/bootstrap/scss/bootstrap';
+.progress {
+    height: 10px;
+    width: 100%;
+}
+
+.sobre-img {
+    background-image: url('../assets/sobre.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 60vh;
+    filter: brightness(65%)
+}
+
+.img-sobre {
+    box-shadow: 0 36px 10px -24px $sombra;
+    filter: brightness(65%)
+}
+
+.carousel {
+    box-shadow: 0 36px 10px -20px $sombra;
+    cursor: pointer;
+}
+
+.img {
+    background-size: cover;
+    height: 60vh;
+    background-position: center;
+    filter: grayscale(100%) brightness(65%);
+    border-radius: 6px;
+}
+
+.img:hover {
+    filter: grayscale(0%) brightness(50%);
+    transition: .7s;
+}
+
+.carousel:hover {
+    .img {
+        filter: grayscale(0%)brightness(50%);
+        transition: .7s;
+    }
+    ;
+    transform: scale(1.05);
+    transition: .7s;
+    @media (max-width:34em) {
+        transform: none;
+    }
+}
+
+//***********************************
+.navbar-toggler .navbar-toggler-icon {
+    background-image: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$accent-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23");
+}
+
+.my-btn {
+    @media (max-width: 62em) {
+        display: none;
+    }
+}
+
+.navbar {
+    position: absolute;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    @media (max-width: 50em) {
+        background-color: rgba(0, 0, 0, 0.527);
+        z-index: 10000;
+    }
+}
+
+.navbar-top {
+    @extend .navbar;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7)
+}
+
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: relative;
+}
+
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+.video-container video {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+}
+
+.video-container video.fillWidth {
+    width: 100%;
+}
+
+.video-container .title-container {
+    z-index: 1000;
+    color: white;
+}
+
+.title-container h1 {
+    opacity: 1;
+    animation: smoth 4s 1;
+    animation-direction: normal;
+}
+
+.title-container p::after {
+    content: '|';
+    margin-left: 5px;
+    opacity: 1;
+    animation: pisca .7s infinite
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes smoth {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pisca {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
